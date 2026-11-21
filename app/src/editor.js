@@ -2,7 +2,7 @@
 // the live preview, and downloads the cover as a PNG at the chosen post size.
 import { LAYOUT_PRESETS, buildPanelPolygons, findLayout, pointInPolygon, polygonBounds } from './layouts.js';
 import { GRADE_PRESETS } from './grades.js';
-import { renderCover, defaultPanelCrop, placePhotoInPanel, exportCoverDataUrl } from './render.js';
+import { renderCover, defaultPanelCrop, placePhotoInPanel, exportCoverDataUrl, fontsReady } from './render.js';
 import { runShotFromQuery } from './shots.js';
 
 export const EXPORT_SIZES = [
@@ -203,7 +203,8 @@ function bindCanvasDrag() {
   }, { passive: false });
 }
 
-export function downloadCoverPng() {
+export async function downloadCoverPng() {
+  await fontsReady;
   const { w, h } = currentSize();
   const a = document.createElement('a');
   a.href = exportCoverDataUrl(state, w, h);
@@ -247,6 +248,7 @@ function syncInputsFromState() {
 async function startEditor() {
   bindControls();
   bindCanvasDrag();
+  await fontsReady;
   const query = new URLSearchParams(location.search);
   if (query.has('shot')) {
     await runShotFromQuery(query, { state, loadSamplePhotos, refreshUi, syncInputsFromState, exportCoverDataUrl, EXPORT_SIZES });

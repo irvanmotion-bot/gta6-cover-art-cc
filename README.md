@@ -10,7 +10,7 @@ slanted multi-panel layout and a colour grade, drag each panel's photo into plac
 - Caption: stacked, skewed brush lettering with outline, drop shadow and a tagline box, in three positions.
 - Export: 1080 × 1080, 1080 × 1350, 1920 × 1080 PNG.
 
-No logos, artwork or font files from any game; lettering uses system display fonts (Impact / Arial Black) drawn on canvas.
+No logos, artwork or font files from any game. Lettering uses Anton (titles) and Inter (labels, UI), shipped in app/fonts/ under the SIL Open Font License (app/fonts/OFL.txt).
 
 Run: `node serve.ts`, open http://localhost:8080. Screenshot scenes: `?shot=cover|editor` (see shots.json).
 Sample photos in app/samples/ were made with an image model and are free to use.

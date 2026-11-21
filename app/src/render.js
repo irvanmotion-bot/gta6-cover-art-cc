@@ -3,8 +3,15 @@
 import { buildPanelPolygons, polygonBounds, findLayout } from './layouts.js';
 import { applyGradientMap, findGrade } from './grades.js';
 
-export const DISPLAY_FONT = 'Impact, "Haettenschweiler", "Arial Black", "Arial Narrow Bold", sans-serif';
-export const LABEL_FONT = '"Arial Black", "Segoe UI Black", Arial, sans-serif';
+// Both fonts ship as files in app/fonts/ (SIL Open Font License, see app/fonts/OFL.txt), loaded by @font-face in style.css.
+export const DISPLAY_FONT = '"Anton", sans-serif';
+export const LABEL_FONT = '"Inter", sans-serif';
+
+// Canvas text silently falls back to another font if the face is not loaded yet, so drawing and export wait on this.
+export const fontsReady = Promise.all([
+  document.fonts.load(`64px ${DISPLAY_FONT}`, 'SUNSET'),
+  document.fonts.load(`800 32px ${LABEL_FONT}`, 'Coming'),
+]).catch(() => {});
 
 const TITLE_FILLS = {
   sunset: ['#fff4d0', '#ffb43c', '#ff3d7a'],
@@ -195,7 +202,7 @@ function drawBrushLine(ctx, text, x, y, size, fills, rnd) {
 function drawTaglineBox(ctx, text, x, y, size, align) {
   if (!text) return;
   ctx.save();
-  ctx.font = `${size}px ${LABEL_FONT}`;
+  ctx.font = `800 ${size}px ${LABEL_FONT}`;
   const label = text.toUpperCase();
   const tw = ctx.measureText(label).width;
   const padX = size * 0.5;

@@ -1,5 +1,9 @@
 # Sunset Panels
 
+[![make.fun · gta6-cover-art-01](https://make.fun/badge/gta6-cover-art-01.svg)](https://make.fun/bounty/gta6-cover-art-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
+[![rank](https://make.fun/badge/gta6-cover-art-01/irvanmotion-bot/gta6-cover-art-cc/rank.svg)](https://make.fun/bounty/gta6-cover-art-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
+[![reward](https://make.fun/badge/gta6-cover-art-01/irvanmotion-bot/gta6-cover-art-cc/reward.svg)](https://make.fun/bounty/gta6-cover-art-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
+
 A static, offline cover-art maker for crime-city-at-the-beach posters. Load your photos, type a caption, pick a
 slanted multi-panel layout and a colour grade, drag each panel's photo into place, and download a PNG.
 
@@ -14,3 +18,5 @@ No logos, artwork or font files from any game. Lettering uses Anton (titles) and
 
 Run: `node serve.ts`, open http://localhost:8080. Screenshot scenes: `?shot=cover|editor` (see shots.json).
 Sample photos in app/samples/ were made with an image model and are free to use.
+
+Built for the make.fun bounty [gta6-cover-art-01](https://make.fun/bounty/gta6-cover-art-01).

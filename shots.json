@@ -1,5 +1,6 @@
 [
-  { "name": "1-cover.jpg", "query": "?shot=cover&photo=pier&caption=Sunset%20Heist", "w": 1080, "h": 1080 },
-  { "name": "2-editor.jpg", "query": "?shot=editor&photo=boulevard&caption=Boulevard%20Queen", "w": 1280, "h": 720 },
-  { "name": "3-cover.jpg", "query": "?shot=cover&photo=boulevard&caption=Boulevard%20Queen", "w": 1080, "h": 1080 }
+  { "name": "1-cover.jpg", "query": "?shot=cover&size=landscape&layout=marquee&grade=mixtape&photos=woman,car,man,pier,boulevard&title=Sunset%20Heist&tag=Coming%20this%20summer&pos=bottom-left", "w": 1920, "h": 1080, "scaled_to": [1280, 720] },
+  { "name": "2-editor.jpg", "query": "?shot=editor&size=landscape&layout=seven&grade=neon&photos=woman,car,man&title=Neon%20Tide&tag=Ocean%20drive%20nights&panel=2", "w": 1280, "h": 800 },
+  { "name": "3-cover.jpg", "query": "?shot=cover&size=portrait&layout=five&grade=sunset&photos=man,car,woman&title=Boulevard%20Kings&tag=Palm%20Coast%20Stories&pos=bottom-left", "w": 1080, "h": 1350, "scaled_to": [1024, 1280] },
+  { "name": "4-cover.jpg", "query": "?shot=cover&size=square&layout=trio&grade=dusk&photos=pier,woman,boulevard&title=Pier%20Pressure&tag=One%20last%20job&pos=center", "w": 1080, "h": 1080 }
 ]

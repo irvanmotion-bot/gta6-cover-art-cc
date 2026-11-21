@@ -1,23 +1,63 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cover Snap</title>
-<link rel="stylesheet" href="./style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sunset Panels: crime-city cover art maker</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main class="app">
-  <section class="controls">
-    <h1>Cover Snap</h1>
-    <p>A photo and a caption, made into a square cover.</p>
-    <label>Photo <input id="photo" type="file" accept="image/*"></label>
-    <label>Caption <input id="caption" type="text" maxlength="40" value="Sunset Heist"></label>
-    <button id="export" type="button">Export PNG 1080 x 1080</button>
-    <p id="status" role="status"></p>
-  </section>
-  <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
-</main>
-<script type="module" src="./src/main.js"></script>
+  <main class="editor" id="editor">
+    <aside class="controls" id="controls">
+      <h1 class="brand">Sunset<span>Panels</span></h1>
+
+      <section class="group">
+        <h2>1 · Photos</h2>
+        <label class="dropzone" id="dropzone">
+          <input type="file" id="photo-input" accept="image/*" multiple>
+          <strong>Drop photos here</strong> or click to pick. They stay on this computer.
+        </label>
+        <div class="thumbs" id="photo-thumbs"></div>
+      </section>
+
+      <section class="group">
+        <h2>2 · Caption</h2>
+        <textarea id="title-input" rows="2" maxlength="60" spellcheck="false">Sunset Heist</textarea>
+        <input id="tagline-input" type="text" maxlength="40" value="Coming this summer">
+        <div class="chips" id="caption-pos"></div>
+      </section>
+
+      <section class="group">
+        <h2>3 · Layout</h2>
+        <div class="chips" id="layout-chips"></div>
+      </section>
+
+      <section class="group">
+        <h2>4 · Colour grade</h2>
+        <div class="chips" id="grade-chips"></div>
+        <label class="slider">Grain <input type="range" id="grain-input" min="0" max="0.5" step="0.01" value="0.2"></label>
+      </section>
+
+      <section class="group" id="panel-tools">
+        <h2>5 · Panel <span id="panel-label">1</span></h2>
+        <p class="hint">Click a panel on the cover, drag to move the photo, scroll to zoom.</p>
+        <div class="thumbs small" id="panel-photo-pick"></div>
+        <label class="slider">Zoom <input type="range" id="zoom-input" min="1" max="4" step="0.01" value="1"></label>
+        <button type="button" id="reset-panel">Reset crop</button>
+      </section>
+
+      <section class="group export">
+        <h2>6 · Export PNG</h2>
+        <div class="chips" id="size-chips"></div>
+        <button type="button" class="primary" id="export-button">Download PNG</button>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage">
+      <canvas id="preview-canvas"></canvas>
+    </section>
+  </main>
+  <img id="shot-image" alt="Exported cover">
+  <script type="module" src="src/editor.js"></script>
 </body>
 </html>
